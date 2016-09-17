@@ -17,3 +17,9 @@ class CalendarSpider(scrapy.Spider):
             venue = tr.xpath('td[3]//text()').extract()
             country = tr.xpath('td[4]//text()').extract()
             link = tr.xpath('td[5]//a/@href').extract()
+
+            log('links', link)
+
+    def log(self, name, text):
+        with open('log/{}.log'.format(name), 'a') as f:
+            f.write('\n'.format(text))
