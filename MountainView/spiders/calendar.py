@@ -9,4 +9,11 @@ class CalendarSpider(scrapy.Spider):
 
     def parse(self, res):
         title = res.xpath('//title')
-        print(res.url)
+
+        events_table = res.xpath('//table[@class="calendar"]/tbody/tr')
+        for tr in events_table:
+            date = tr.xpath('td[1]//text()').extract()
+            name = tr.xpath('td[2]//text()').extract()
+            venue = tr.xpath('td[3]//text()').extract()
+            country = tr.xpath('td[4]//text()').extract()
+            link = tr.xpath('td[5]//a/@href').extract()
