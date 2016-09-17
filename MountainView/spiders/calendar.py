@@ -1,6 +1,8 @@
 import scrapy
 import os
 
+from MountainView.models import Event
+
 class CalendarSpider(scrapy.Spider):
     name = 'calendar'
     start_urls = [
@@ -32,8 +34,11 @@ class CalendarSpider(scrapy.Spider):
                 }
                 events.append(event)
 
-        print(events)
         # Save in database
+        e = Event()
+        for event in events:
+            # e.create(event)
+            pass
 
     def log(self, name, text):
         with open('log/{}.log'.format(name), 'a') as f:
