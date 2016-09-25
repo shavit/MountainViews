@@ -41,3 +41,22 @@ class Event(Model):
 
     def __init__(self):
         pass
+
+    def create(self):
+        conn = self.connection()
+        cursor = conn.cursor()
+        query = """
+            INSERT INTO events (
+
+            )
+            VALUES (
+
+            )
+        """
+        cursor.execute(query, {
+
+        })
+        res = cursor.commit()
+        conn.close()
+
+        return res
