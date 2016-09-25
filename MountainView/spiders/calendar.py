@@ -12,14 +12,29 @@ class CalendarSpider(scrapy.Spider):
     def parse(self, res):
         title = res.xpath('//title')
 
+        events_table = res.xpath('//table[@class="calendar"]/tbody/tr')
+        dates = events_table.css('td:nth-child(0)').xpath('/text()').extract()
+        names = events_table.xpath('td[2]//text()')
+        venues = events_table.xpath('//td[3]/text()').extract()
+        countries = events_table.xpath('//td[4]//text()').extract()
+        links = events_table.xpath('//td[5]//a//@href').extract()
+
+
+        print('---> /End Results')
+
         events = list()
-        events_table = res.xpath('//table[@class="calendar"]//tbody/tr')
+        events_table = res.xpath('//table[@class="calendar"]/tbody/tr')
         for tr in events_table:
-            date = tr.xpath('td[1]//text()').extract()
-            name = tr.xpath('td[2]//text()').extract()
-            venue = tr.xpath('td[3]//text()').extract()
-            country = tr.xpath('td[4]//text()').extract()
-            link = tr.xpath('td[5]//a//@href').extract()
+            date = tr.xpath('td[1]/text()').extract()
+            name = tr.xpath('td[2]/text()').extract()
+            venue = tr.xpath('td[3]/text()').extract()
+            country = tr.xpath('td[4]/text()').extract()
+            link = tr.xpath('td[5]/text()').extract()
+
+            print('---> Date {}'.format(date))
+            print('---> Name {}'.format(name))
+            print('---> Venue {}'.format(venue))
+            print('---> Country {}'.format(country))
 
             if not link:
                 link = ['']
@@ -33,6 +48,10 @@ class CalendarSpider(scrapy.Spider):
                     "link": link[0].strip()
                 }
                 events.append(event)
+                self.log('links', event)
+
+            pass
+
 
         # Save in database
         e = Event()
@@ -42,4 +61,5 @@ class CalendarSpider(scrapy.Spider):
 
     def log(self, name, text):
         with open('log/{}.log'.format(name), 'a') as f:
-            f.write('\n'.format(text))
+            f.write('{}\n'.format(text))
+        pass
