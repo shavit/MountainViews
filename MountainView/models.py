@@ -38,23 +38,25 @@ class Model(object):
 
 class Event(Model):
     _table_name = 'events'
+    name = ''
 
     def __init__(self):
         pass
 
-    def create(self):
+    def create(event):
         conn = self.connection()
         cursor = conn.cursor()
         query = """
             INSERT INTO %(table_name) (
-
+                name
             )
             VALUES (
-
+                %(name)
             )
         """
         cursor.execute(query, {
-            "table_name": AsIs(self._table_name)
+            "table_name": AsIs(self._table_name),
+            "name": event.name
         })
         res = cursor.commit()
         conn.close()
