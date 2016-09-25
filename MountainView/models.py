@@ -46,7 +46,7 @@ class Event(Model):
         conn = self.connection()
         cursor = conn.cursor()
         query = """
-            INSERT INTO events (
+            INSERT INTO %(table_name) (
 
             )
             VALUES (
@@ -54,7 +54,7 @@ class Event(Model):
             )
         """
         cursor.execute(query, {
-
+            "table_name": AsIs(self._table_name)
         })
         res = cursor.commit()
         conn.close()
