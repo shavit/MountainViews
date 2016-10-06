@@ -48,21 +48,33 @@ class Event(Model):
         cursor = conn.cursor()
         query = """
             INSERT INTO %(table_name) (
-                name
+                name,
+                description,
+                link,
+                country,
+                venue
             )
             VALUES (
-                %(name)
+                %(name)s,
+                %(description)s,
+                %(link)s,
+                %(country)s,
+                %(venue)s
             )
         """
         cursor.execute(query, {
             "table_name": AsIs(self._table_name),
             "name": event['name'],
+            "description": event['name'],
+            "picture": '',
             "link": event['link'],
             "country": event['country'],
             "venue": event['venue'],
             "date": event['date'],
         })
-        res = cursor.commit()
+        # res = cursor.commit()
         conn.close()
+        print('---> Query')
+        print(query)
 
-        return res
+        # return res
