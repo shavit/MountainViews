@@ -43,7 +43,7 @@ class Event(Model):
     def __init__(self):
         pass
 
-    def create(event):
+    def create(self, event):
         conn = self.connection()
         cursor = conn.cursor()
         query = """
@@ -56,7 +56,11 @@ class Event(Model):
         """
         cursor.execute(query, {
             "table_name": AsIs(self._table_name),
-            "name": event.name
+            "name": event['name'],
+            "link": event['link'],
+            "country": event['country'],
+            "venue": event['venue'],
+            "date": event['date'],
         })
         res = cursor.commit()
         conn.close()

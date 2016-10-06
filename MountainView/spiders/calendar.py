@@ -41,7 +41,7 @@ class CalendarSpider(scrapy.Spider):
         # Save in database
         e = Event()
         for event in events:
-            # e.create(event)
+            e.create(event)
             pass
 
     def log(self, name, text):
