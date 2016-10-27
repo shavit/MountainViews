@@ -1,2 +1,5 @@
 scrapy
 psycopg2
+cython
+pygame
+kivy
