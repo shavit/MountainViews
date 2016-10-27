@@ -22,3 +22,9 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
     end
     ```
 
+
+## Testing
+Run tests from the project directory
+````
+python -m unittest test.test_grid
+````
