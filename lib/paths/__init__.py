@@ -54,4 +54,24 @@ class MVPath:
 
         return visited
 
+    # Track where the path came from
+    def breadthFirstSearchWithTrace(self, grid, start_node):
+        graph = MVGraph()
+        frontier = list()
+        frontier.append(start_node)
+        visited = dict()
+        visited[str(start_node)] = True
+        came_from = dict()
+        came_from[str(start_node)] = None
+
+        while len(frontier) > 0:
+            current_point = frontier.pop()
+            for next_point in graph.simpleNeighbors(grid, current_point):
+                if str(next_point) not in visited:
+                    frontier.append(next_point)
+                    visited[str(next_point)] = True
+                    came_from[str(next_point)] = current_point
+
+        return [came_from, visited]
+
     pass
