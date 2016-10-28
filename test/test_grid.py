@@ -2,6 +2,16 @@ import unittest
 from lib.paths import MVGraph
 
 class GridTest(unittest.TestCase):
+
+    # The number of nodes should be equal width x height
+    def testSimpleGrid(self):
+        graph = MVGraph()
+        w = 2
+        h = 2
+        nodes = graph.simpleGrid(w, h)
+        self.assertIs(len(nodes), w*h)
+        pass
+
     def testDrawing(self):
         graph = MVGraph()
         graph.edges = {
