@@ -35,3 +35,23 @@ class MVGraph():
 
     def neighbors(self, id):
         return self.edges[id]
+
+# Create paths
+class MVPath:
+    def breadthFirstSearch(self, grid, start_node):
+        graph = MVGraph()
+        frontier = list()
+        frontier.append(start_node)
+        visited = dict()
+        visited[str(start_node)] = True
+
+        while len(frontier) > 0:
+            current_point = frontier.pop()
+            for next_point in graph.simpleNeighbors(grid, current_point):
+                if str(next_point) not in visited:
+                    frontier.append(next_point)
+                    visited[str(next_point)] = True
+
+        return visited
+
+    pass
