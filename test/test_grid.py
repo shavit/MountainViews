@@ -12,6 +12,15 @@ class GridTest(unittest.TestCase):
         self.assertIs(len(nodes), w*h)
         pass
 
+    def testSimpleNeighbors(self):
+        graph = MVGraph()
+        grid = graph.simpleGrid(10, 10)
+
+        # Point in the center should have 4 neighbors
+        self.assertIs(len(graph.simpleNeighbors(grid, [4,4])), 4)
+        # Point in the corner should have 2 neighbors
+        self.assertIs(len(graph.simpleNeighbors(grid, [0,0])), 2)
+
     def testDrawing(self):
         graph = MVGraph()
         graph.edges = {
