@@ -38,6 +38,9 @@ class MVGraph():
 
 # Create paths
 class MVPath:
+
+    # Track the visited nodes
+    # Returns a dictionary with the visited nodes
     def breadthFirstSearch(self, grid, start_node):
         graph = MVGraph()
         frontier = list()
@@ -55,6 +58,7 @@ class MVPath:
         return visited
 
     # Track where the path came from
+    # Returns a list with 2 objects: came_from, visited
     def breadthFirstSearchWithTrace(self, grid, start_node):
         graph = MVGraph()
         frontier = list()
