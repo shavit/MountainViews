@@ -7,8 +7,8 @@ defmodule MountainView do
 
   def call(conn, _opts) do
     conn
-    |> put_resp_content_type("text/plain")
-    |> send_resp(200, "Mountain views")
+    |> put_resp_content_type("application/javascript")
+    |> send_resp(200, "{status: \"it works\"}")
   end
 
   def start(_type, _args) do
