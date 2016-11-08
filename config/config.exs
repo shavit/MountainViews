@@ -29,9 +29,6 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 
-IO.inspect Mix.env
-IO.puts Mix.env
-
 config :mountain_view, [
   base_url: :os.getenv("BASE_URL"),
   database_url: :os.getenv("POSTGRESQL_URI")
