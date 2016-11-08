@@ -15,7 +15,11 @@ defmodule MountainView.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     [applications:
-      [:logger, :cowboy, :plug]
+      [:logger, :cowboy, :plug],
+      env: [cowboy_port: 4000],
+      mod: {
+        MountainView, {}
+      }
     ]
   end
 
