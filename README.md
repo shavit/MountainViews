@@ -1,6 +1,6 @@
 # Mountain View
 
-![Mountain View](https://raw.githubusercontent.com/shavit/MountainViews.git/master/doc/mountain_views.jpg)
+![Mountain View](https://github.com/shavit/MountainViews/blob/master/doc/mountain_views.jpg?raw=true)
 
 ## Installation
 
