@@ -1,6 +1,6 @@
-# MountainView
+# Mountain View
 
-**TODO: Add description**
+![Mountain View](https://raw.githubusercontent.com/shavit/MountainViews.git/master/doc/mountain_views.jpg)
 
 ## Installation
 
