@@ -7,6 +7,12 @@ defmodule MountainView.Router do
   get "/" do
     conn
     |> put_resp_content_type("application/javascript")
-    |> send_resp(200, "{status: \"it works\"}")
+    |> send_resp(200, "{message: \"It works\"}")
+  end
+
+  match _ do
+    conn
+    |> put_resp_content_type("application/javascript")
+    |> send_resp(404, "{message: \"Not found\"}")
   end
 end
