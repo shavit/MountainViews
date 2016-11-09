@@ -1,6 +1,7 @@
 defmodule Quicksort do
   def unordered do
-    [8,1,3,4,7,5,6,9,11]
+    # [8,1,3,4,7,5,6,9,11]
+    [[8, 7],1,3,4,7,5,6,9,11]
   end
 
 
@@ -20,4 +21,4 @@ defmodule Quicksort do
   end
 end
 
-Quicksort.call
+IO.puts Quicksort.call
