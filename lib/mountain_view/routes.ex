@@ -4,6 +4,14 @@ defmodule MountainView.Router do
   plug :match
   plug :dispatch
 
+  def init(options) do
+    options
+  end
+
+  def start_link(opts \\ []) do
+    {:ok, _} = Plug.Adapters.Cowboy.http MountainView.Router, opts
+  end
+
   get "/" do
     conn
     |> put_resp_content_type("application/javascript")
