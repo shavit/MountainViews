@@ -3,6 +3,6 @@ defmodule GridDrawTest do
   doctest MountainView
 
   test "Draw grid" do
-    assert MountainView.Grid.Draw.size(1,2)
+    assert 2 == MountainView.Grid.Draw.size(1,2) |> length
   end
 end
