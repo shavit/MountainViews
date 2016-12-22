@@ -18,6 +18,14 @@ defmodule MountainView.Router do
     |> send_resp(200, "{message: \"It works\"}")
   end
 
+  get "/grid" do
+    grid = MountainView.Grid.Draw.size(20,20)
+
+    conn
+    |> put_resp_content_type("application/javascript")
+    |> send_resp(200, grid)
+  end
+
   match _ do
     conn
     |> put_resp_content_type("application/javascript")
