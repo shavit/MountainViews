@@ -6,7 +6,7 @@ defmodule Fibonacci do
   """
   def iterate(a, b, n) do
     cond do
-      n == 0 -> a
+      n == 0 -> b
       true -> iterate((a+b), a, n-1)
     end
   end
@@ -18,3 +18,4 @@ defmodule Fibonacci do
 end
 
 IO.inspect Fibonacci.call
+IO.puts Fibonacci.call == 13
