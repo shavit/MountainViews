@@ -19,11 +19,13 @@ defmodule MountainView.Router do
   end
 
   get "/grid" do
-    grid = MountainView.Grid.Draw.size(20,20)
+    data = Poison.encode! %{data:
+      MountainView.Grid.Draw.size(20,2)
+    }
 
     conn
     |> put_resp_content_type("application/javascript")
-    |> send_resp(200, grid)
+    |> send_resp(200, data)
   end
 
   match _ do
