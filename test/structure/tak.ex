@@ -13,7 +13,7 @@ defmodule Tak do
   end
 
   def call do
-    tak(30,20,10)
+    tak(3,2,1)
   end
 end
 
