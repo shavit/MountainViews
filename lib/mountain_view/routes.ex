@@ -1,4 +1,5 @@
 defmodule MountainView.Router do
+  import MountainView.Template
   use Plug.Router
 
   plug :match
@@ -14,8 +15,8 @@ defmodule MountainView.Router do
 
   get "/" do
     conn
-    |> put_resp_content_type("application/javascript")
-    |> send_resp(200, "{message: \"It works\"}")
+    |> put_resp_content_type("text/html")
+    |> send_resp(200, render("index"))
   end
 
   get "/grid" do
