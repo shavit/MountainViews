@@ -2,6 +2,10 @@
 
 ![Mountain View](https://github.com/shavit/MountainViews/blob/master/doc/mountain_views.jpg?raw=true)
 
+Mobile and web app backend to explore paths.
+
+![Navigation and path finding](https://github.com/shavit/MountainViews/blob/master/doc/grid.gif?raw=true)
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
