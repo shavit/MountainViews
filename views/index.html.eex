@@ -35,24 +35,27 @@
         $grid.append(snap.node)
 
         for (var i=0; i<points.length; i++){
-          var point = points[i]
-          var color
-          
-          switch(point.type){
-            case "node":
-              color = "#7CB342"
-              break;
-            case "block":
-              color = "#FF5722"
-              break;
-            default:
-              color = "#7CB342"
+          for (var ii=0; ii<points[i].length; ii++){
+            var point = points[i][ii]
+            var color
+            console.log(point)
+
+            switch(point.type){
+              case "node":
+                color = "#7CB342"
+                break;
+              case "block":
+                color = "#FF5722"
+                break;
+              default:
+                color = "#7CB342"
+            }
+            var circle = snap.circle(point.x*scale, point.y*scale ,4/scale*4)
+            circle.attr({
+              fill: color
+            })
+            nodeGroup.add(circle)
           }
-          var circle = snap.circle(point.x*scale, point.y*scale ,4/scale*4)
-          circle.attr({
-            fill: color
-          })
-          nodeGroup.add(circle)
         }
       }
 

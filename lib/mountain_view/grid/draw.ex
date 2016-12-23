@@ -1,19 +1,31 @@
 defmodule MountainView.Grid.Draw do
   alias MountainView.Grid.Point
 
+  def point_types do
+    [:node, :block, :visited]
+  end
+
   def random_point_type do
-    [:node, :block]
-    |> Enum.at((:rand.uniform(2)-1))
+    [:node, :block, :node, :node, :node, :node]
+    |> Enum.at((:rand.uniform(6)-1))
+  end
+
+  def get_point(l,x,y) do
+    l
+    |> Enum.at(x)
+    |> Enum.at(y)
   end
 
   def size(w, h) do
     Enum.map(1..w,
       fn x ->
         Enum.map(1..h,
-          fn y -> %Point{x: x, y: y, type: random_point_type}
+          fn y ->
+            %Point{x: x, y: y, type: random_point_type}
       end)
     end)
-    |> List.flatten
   end
+
+
 
 end
