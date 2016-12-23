@@ -42,6 +42,7 @@
 
         $grid.append(snap.node)
 
+        // draw points
         for (var i=0; i<points.length; i++){
           for (var ii=0; ii<points[i].length; ii++){
             var point = points[i][ii]

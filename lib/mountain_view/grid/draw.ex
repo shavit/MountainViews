@@ -35,9 +35,23 @@ defmodule MountainView.Grid.Draw do
 
   def create_breadth_first_search(w,h) do
     l = size(w,h)
-    # starting point
-    frontier = l |> get_point(1,1)
-    visited = Map.put(%{},(frontier.x + frontier.y), true)
+    start = l |> get_point(1,1)
+    came_from = [start]
+    route = []
+    # visited = Map.put(%{},(start.x + start.y), true)
+    visited = [start.x + start.y]
+
+    d = l |> Enum.reduce(0, fn row ->
+      row |> Enum.reduce(0, fn p ->
+        # if !Enum.member?(came_from, (x+y)) do
+          route ++ p
+        # end
+      end)
+    end)
+
+    IO.inspect d
+    IO.inspect route
+
 
     # while frontier not empty
 
