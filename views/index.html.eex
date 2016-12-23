@@ -30,16 +30,28 @@
         var snap = Snap($grid.id)
         var nodeGroup = snap.g()
         nodeGroup.attr({
-          fill: "#689F38",
           transform: "translate(-4,-4), scale(4)"
         })
         $grid.append(snap.node)
 
         for (var i=0; i<points.length; i++){
           var point = points[i]
-          console.log(point.type)
-          // regular point
+          var color
+          
+          switch(point.type){
+            case "node":
+              color = "#7CB342"
+              break;
+            case "block":
+              color = "#FF5722"
+              break;
+            default:
+              color = "#7CB342"
+          }
           var circle = snap.circle(point.x*scale, point.y*scale ,4/scale*4)
+          circle.attr({
+            fill: color
+          })
           nodeGroup.add(circle)
         }
       }
