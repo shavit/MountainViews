@@ -34,11 +34,13 @@
         })
         var routePathGroup = snap.g()
         routePathGroup.attr({
+          fill: "none",
           stroke: "#FFCA28",
           strokeWidth: 1,
           transform: "translate(-4,-4), scale(4)"
         })
         var pathPoints = "M18 18"
+        var cameFrom = [18,18]
 
         $grid.append(snap.node)
 
@@ -64,7 +66,11 @@
             })
             nodeGroup.add(circle)
 
-            pathPoints += "L"+point.x*scale+" "+point.y*scale
+            // Keep going in the X
+            if (point.x*scale > cameFrom[0] && point.type != "block"){
+              pathPoints += "L"+point.x*scale+" "+point.y*scale
+              cameFrom = [point.x*scale, point.y*scale]
+            }
           }
         }
 
@@ -75,7 +81,7 @@
       // Ready
       $(document).ready(function(){
 
-        // load data
+        // Load data
         $.getJSON("http://localhost:4000/grid.json", function(data){
           var $grid1 = $("#grid-1");
           draw($grid1, data.data)
