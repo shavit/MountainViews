@@ -38,7 +38,6 @@
           for (var ii=0; ii<points[i].length; ii++){
             var point = points[i][ii]
             var color
-            console.log(point)
 
             switch(point.type){
               case "node":
