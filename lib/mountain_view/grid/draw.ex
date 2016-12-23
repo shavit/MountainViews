@@ -2,7 +2,7 @@ defmodule MountainView.Grid.Draw do
   alias MountainView.Grid.Point
 
   def random_point_type do
-    [:node, :b]
+    [:node, :block]
     |> Enum.at((:rand.uniform(2)-1))
   end
 
