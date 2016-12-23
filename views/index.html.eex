@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Mountain Views</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <style>
+      .paths, .paths svg{background: #efefef; height: 600px; width: 1200px;}
+    </style>
   </head>
   <body>
     <div class="mdl-grid">
@@ -10,24 +15,33 @@
     </div>
 
     <!-- display the grid -->
-    <div id="grid-1"></div>
+    <div id="grid-1" class="paths"></div>
 
     <!-- libraries -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
     <!-- after the document has load -->
     <script>
-      $(document).ready(function(){
 
-        // DOM objects
-        // var $grid1 = $("#grid-1");
+      function draw($grid, points){
+        var snap = Snap($grid.id)
+        snap.circle(120,120,120)
+        $grid.append(snap.node)
+
+        for (var i=0; i<points.length; i++){
+
+        }
+      }
+
+      // Ready
+      $(document).ready(function(){
 
         // load data
         $.getJSON("http://localhost:4000/grid.json", function(data){
-
+          var $grid1 = $("#grid-1");
+          draw($grid1, data.data)
         });
 
       });
