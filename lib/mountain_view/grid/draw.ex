@@ -26,6 +26,12 @@ defmodule MountainView.Grid.Draw do
     end)
   end
 
+  def create_breadth_first_search(w,h) do
+    l = size(w,h)
+    frontier = l |> get_point(1,1)
+    IO.inspect frontier
 
+    p = l
+  end
 
 end
