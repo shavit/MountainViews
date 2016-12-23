@@ -26,12 +26,20 @@
     <script>
 
       function draw($grid, points){
+        var scale = 18
         var snap = Snap($grid.id)
-        snap.circle(120,120,120)
+        var nodeGroup = snap.g()
+        nodeGroup.attr({
+          fill: "#689F38",
+          transform: "translate(-4,-4), scale(4)"
+        })
         $grid.append(snap.node)
 
         for (var i=0; i<points.length; i++){
-
+          var point = points[i]
+          // regular point
+          var circle = snap.circle(point.x*scale, point.y*scale ,4/scale*4)
+          nodeGroup.add(circle)
         }
       }
 
