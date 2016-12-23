@@ -10,6 +10,7 @@
     </div>
 
     <!-- display the grid -->
+    <div id="grid-1"></div>
 
     <!-- libraries -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -20,7 +21,15 @@
     <!-- after the document has load -->
     <script>
       $(document).ready(function(){
-        console.log("Hello")
+
+        // DOM objects
+        // var $grid1 = $("#grid-1");
+
+        // load data
+        $.getJSON("http://localhost:4000/grid.json", function(data){
+
+        });
+
       });
     </script>
   </body>

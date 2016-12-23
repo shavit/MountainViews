@@ -19,7 +19,7 @@ defmodule MountainView.Router do
     |> send_resp(200, render("index"))
   end
 
-  get "/grid" do
+  get "/grid.json" do
     data = Poison.encode! %{data:
       MountainView.Grid.Draw.size(20,2)
     }
