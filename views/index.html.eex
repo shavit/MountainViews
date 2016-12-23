@@ -67,7 +67,8 @@
             nodeGroup.add(circle)
 
             // Keep going in the X
-            if (point.x*scale > cameFrom[0] && point.type != "block"){
+            if (point.x*scale > cameFrom[0]
+              && point.type != "block"){
               pathPoints += "L"+point.x*scale+" "+point.y*scale
               cameFrom = [point.x*scale, point.y*scale]
             }

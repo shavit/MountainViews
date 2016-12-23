@@ -41,7 +41,7 @@ defmodule MountainView.Grid.Draw do
     # visited = Map.put(%{},(start.x + start.y), true)
     visited = [start.x + start.y]
 
-    d = l |> Enum.each(fn row ->
+    l |> Enum.each(fn row ->
       row |> Enum.each(fn p ->
         # if !Enum.member?(came_from, (x+y)) do
           route ++ p
@@ -49,9 +49,7 @@ defmodule MountainView.Grid.Draw do
       end)
     end)
 
-    IO.inspect d
     IO.inspect route
-
 
     # while frontier not empty
 
