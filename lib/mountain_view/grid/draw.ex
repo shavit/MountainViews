@@ -32,6 +32,8 @@ defmodule MountainView.Grid.Draw do
     frontier = l |> get_point(1,1)
     visited = Map.put(%{},(frontier.x + frontier.y), true)
 
+    # while frontier not empty
+
     p = l
   end
 
