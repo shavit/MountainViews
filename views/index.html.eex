@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <style>
-      .paths, .paths svg{background: #efefef; height: 600px; width: 1200px;}
+      .paths, .paths svg{background: #efefef; height: 80vh; width: 100%;}
     </style>
   </head>
   <body>
