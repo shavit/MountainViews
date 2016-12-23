@@ -12,8 +12,8 @@ defmodule MountainView.Grid.Draw do
 
   def get_point(l,x,y) do
     l
-    |> Enum.at(x)
-    |> Enum.at(y)
+    |> Enum.at(x-1)
+    |> Enum.at(y-1)
   end
 
   def size(w, h) do
@@ -28,8 +28,9 @@ defmodule MountainView.Grid.Draw do
 
   def create_breadth_first_search(w,h) do
     l = size(w,h)
+    # starting point
     frontier = l |> get_point(1,1)
-    IO.inspect frontier
+    visited = Map.put(%{},(frontier.x + frontier.y), true)
 
     p = l
   end
