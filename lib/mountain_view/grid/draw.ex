@@ -41,8 +41,8 @@ defmodule MountainView.Grid.Draw do
     # visited = Map.put(%{},(start.x + start.y), true)
     visited = [start.x + start.y]
 
-    d = l |> Enum.reduce(0, fn row ->
-      row |> Enum.reduce(0, fn p ->
+    d = l |> Enum.each(fn row ->
+      row |> Enum.each(fn p ->
         # if !Enum.member?(came_from, (x+y)) do
           route ++ p
         # end
