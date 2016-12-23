@@ -37,6 +37,7 @@
 
         for (var i=0; i<points.length; i++){
           var point = points[i]
+          console.log(point.type)
           // regular point
           var circle = snap.circle(point.x*scale, point.y*scale ,4/scale*4)
           nodeGroup.add(circle)
