@@ -26,6 +26,13 @@ defmodule MountainView.Grid.Draw do
     end)
   end
 
+  def neighbor(l,p,v) do
+    cond do
+      p.x > 1 && p.y > 1 ->
+
+    end
+  end
+
   def create_breadth_first_search(w,h) do
     l = size(w,h)
     # starting point
