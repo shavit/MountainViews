@@ -29,6 +29,17 @@ defmodule MountainView.Router do
     |> send_resp(200, data)
   end
 
+  get "/api/v1/users/sign" do
+    token = :rand.uniform
+      |> to_string
+      |> String.split(".")
+      |> List.last
+
+    conn
+    |> put_resp_content_type("application/javascript")
+    |> send_resp(200, "{\"message\": \"Success\", \"token\": \"#{token}\"}")
+  end
+
   match _ do
     conn
     |> put_resp_content_type("application/javascript")
