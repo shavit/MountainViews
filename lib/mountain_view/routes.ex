@@ -29,7 +29,7 @@ defmodule MountainView.Router do
     |> send_resp(200, data)
   end
 
-  get "/api/v1/users/sign" do
+  post "/api/v1/users/login" do
     token = :rand.uniform
       |> to_string
       |> String.split(".")
@@ -37,7 +37,7 @@ defmodule MountainView.Router do
 
     conn
     |> put_resp_content_type("application/javascript")
-    |> send_resp(200, "{\"message\": \"Success\", \"token\": \"#{token}\"}")
+    |> send_resp(200, "{message: \"Success\", token: \"#{token}\"}")
   end
 
   match _ do
