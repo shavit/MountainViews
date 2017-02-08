@@ -31,5 +31,6 @@ use Mix.Config
 
 config :mountain_view, [
   base_url: :os.getenv("BASE_URL"),
-  database_url: :os.getenv("POSTGRESQL_URI")
+  database_url: :os.getenv("POSTGRESQL_URI"),
+  port: :os.getenv("PORT")
 ]
